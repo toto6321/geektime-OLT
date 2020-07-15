@@ -173,7 +173,7 @@ def generate_common_elements(order=None):
     <body>
     <div id="content" class="w3-content">
         <div class="w3-row">
-            <aside class="w3-container w3-quarter">
+            <aside class="w3-container w3-third">
                 <h4 class="w3-text-red">{title}</h4>
                 {chapter_elements}
             </aside>

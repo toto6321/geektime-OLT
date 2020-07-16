@@ -241,8 +241,11 @@ def generate_common_elements(order=None):
     """
     style_file = "index.css"
     js_file = "index.js"
-    write_common_style(style_file)
-    write_common_js(js_file)
+    # write_common_style(style_file)
+    # write_common_js(js_file)
+    import shutil
+    shutil.copy(f'../../{style_file}', f'./{style_file}')
+    shutil.copy(f'../../{js_file}', f'./{js_file}')
 
     if order is None:
         order = [1, 2, 4, 3, 5, 0, 6]  # for the course: 数据分析实战45讲

@@ -265,7 +265,7 @@ def generate_common_elements(order=None):
         a_list = '\n'.join(article_lis)
         c_item = f"""
         <section class='c_item'>
-            <div class="chapter_wrapper">
+            <div class='chapter_wrapper'>
                 <h4 class='chapter_title' onclick="collapse('{collapsible_node_id}')">{chapter_title_list[o]}</h4>
                 <i class='fas fa-angle-down'></i>
             </div>
@@ -299,8 +299,8 @@ def generate_common_elements(order=None):
     </head>
     <body>
     <div id="app">
-        <div id="content'>
-            <aside class='w3-simplebar-content'>
+        <div id="content">
+            <aside class="simplebar_content">
                 <h3 class='w3-text-red'>{title}</h3>
                 <div class='hierarchy'>课程目录</div>
                 {chapter_elements}

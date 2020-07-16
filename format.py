@@ -199,7 +199,7 @@ def write_common_js(js_file="index.js"):
             if (x.className.indexOf("w3-hide") === -1) {
                 x.className += " w3-hide"
             } else {
-                x.className = x.className.replace(" w3-hide", "w3-show")
+                x.className = x.className.replace(" w3-hide", " w3-show")
             }
         }
 
@@ -269,7 +269,7 @@ def generate_common_elements(order=None):
                 <h4 class='chapter_title' onclick="collapse('{collapsible_node_id}')">{chapter_title_list[o]}</h4>
                 <i class='fas fa-angle-down'></i>
             </div>
-            <div id='{collapsible_node_id}' class='article_list'>
+            <div id='{collapsible_node_id}' class='article_list w3-hide'>
                 <div class='article_item_wrapper'>
                     {a_list}
                 </div>

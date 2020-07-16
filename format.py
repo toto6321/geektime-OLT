@@ -100,19 +100,30 @@ def write_common_style(style_file="index.css"):
         
         #content {
             position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             overflow: hidden;
+            overflow-y: scroll;
             font-weight: 400;
         }
         
         aside {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 380px;
-            height: 100%;
-            overflow: hidden;
-            /*position: absolute;*/
+            bottom: 0;
+            background: #fefdfc;
+            border-right: 1px solid #e4e4e4;
+            z-index: 10;
+            -webkit-transition: left 0.6s ease;
+            transition: left 0.6s ease;
         }
         
-        .simplebar-content {
-            padding-bottom: 50px;
+        .simplebar_content {
+            overflow: hidden scroll;
         }
         
         .hierarchy {
@@ -181,6 +192,16 @@ def write_common_style(style_file="index.css"):
         
         .article_item:hover {
             color: orange;
+        }
+        
+        main {
+            position: absolute;
+            /*top: 0;*/
+            left: 380px;
+            /*right: 0;*/
+            /*bottom: 0;*/
+            transition: left 0.6s ease;
+        
         }
     """
     style = style.strip()

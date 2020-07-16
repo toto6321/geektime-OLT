@@ -323,24 +323,24 @@ def generate_common_elements(order=None):
     </head>
     <body>
     <div id="app">
-        <aside class="simplebar_content">
+        <aside>
             <div class="course_header">
-                <h3 class='w3-text-red'>{title}</h3>
-                <div class='hierarchy'>课程目录</div>
-                {chapter_elements}
+                <h3 class='w3-text-red'>数据分析实战45讲</h3>
+                <div class='course_content'><h4><span>&gt;</span><span>课程目录</span></h4></div>
             </div>
+            {chapter_elements}
         </aside>
         <main class="">
-                    <article class="">
+            <article class="">
 
     """
 
     ### Between before and after is the original content
     after = """
-                    </article>
-                </main>
-            </div>
-        </body>
+            </article>
+        </main>
+    </div>
+    </body>
     </html>
     """
 

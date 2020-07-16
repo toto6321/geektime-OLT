@@ -294,9 +294,7 @@ def generate_common_elements(order=None):
                 <i class='fas fa-angle-down'></i>
             </div>
             <div id='{collapsible_node_id}' class='article_list w3-hide'>
-                <div class='article_item_wrapper'>
-                    {a_list}
-                </div>
+                {a_list}
             </div>
         </section>
         """

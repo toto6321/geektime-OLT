@@ -325,9 +325,11 @@ def generate_common_elements(order=None):
     <div id="app">
         <div id="content">
             <aside class="simplebar_content">
-                <h3 class='w3-text-red'>{title}</h3>
-                <div class='hierarchy'>课程目录</div>
-                {chapter_elements}
+                <div class="course_header">
+                    <h3 class='w3-text-red'>{title}</h3>
+                    <div class='hierarchy'>课程目录</div>
+                    {chapter_elements}
+                </div>
             </aside>
             <main class="w3-container w3-rest">
                         <article class="w3-container">

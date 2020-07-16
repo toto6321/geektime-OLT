@@ -6,12 +6,20 @@ h3, h4, h5 {
     display: flex;
 }
 
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
 #app {
     font: 300 1em/1.5 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
-    width: 100%;
     height: 100vh;
     display: flex;
     overflow: hidden;
+    margin: auto;
 }
 
 aside {
@@ -90,7 +98,24 @@ aside {
 
 main {
     height: 100%;
-    flex: 1 1 500px;
+    max-width: 960px;
+    /*flex: 1 1 500px;*/
     overflow-y: scroll;
-    margin: auto;
+}
+
+@media all and (max-width: 600px)  {
+    #app {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        flex: 1 1 40%;
+        width: 100%;
+    }
+
+    main {
+        flex: 1 1 60%;
+        width: 100%;
+    }
 }

@@ -331,8 +331,8 @@ def generate_common_elements(order=None):
                     {chapter_elements}
                 </div>
             </aside>
-            <main class="w3-container w3-rest">
-                        <article class="w3-container">
+            <main class="">
+                        <article class="">
 
     """
 

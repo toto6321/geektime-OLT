@@ -197,7 +197,7 @@ def write_common_js(js_file="index.js"):
         function collapse(id) {
             let x = document.getElementById(id)
             if (x.className.indexOf("w3-hide") === -1) {
-                x.className += " w3-hide"
+                x.className = x.className.replace(" w3-show", " w3-hide")
             } else {
                 x.className = x.className.replace(" w3-hide", " w3-show")
             }

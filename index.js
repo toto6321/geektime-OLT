@@ -1,9 +1,9 @@
 function collapse(id) {
     let x = document.getElementById(id)
-    if (x.className.indexOf("w3-hide") === -1) {
-        x.className += " w3-hide"
+    if (x.className.indexOf("w3-show") === -1) {
+        x.className += " w3-show"
     } else {
-        x.className = x.className.replace(" w3-hide", "w3-show")
+        x.className = x.className.replace(" w3-show", " w3-hide")
     }
 }
 

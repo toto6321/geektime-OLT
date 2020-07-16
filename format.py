@@ -265,8 +265,8 @@ def generate_common_elements(order=None):
         a_list = '\n'.join(article_lis)
         c_item = f"""
         <section class='c_item'>
-            <div class='chapter_wrapper'>
-                <h4 class='chapter_title' onclick="collapse('{collapsible_node_id}')">{chapter_title_list[o]}</h4>
+            <div class='chapter_wrapper' onclick="collapse('{collapsible_node_id}')">
+                <h4 class='chapter_title'>{chapter_title_list[o]}</h4>
                 <i class='fas fa-angle-down'></i>
             </div>
             <div id='{collapsible_node_id}' class='article_list w3-hide'>

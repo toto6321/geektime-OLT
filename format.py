@@ -1,4 +1,5 @@
 import os
+import shutil
 
 BACKUP = "backup"
 
@@ -11,15 +12,17 @@ def back_up():
 
     if not os.path.isdir(BACKUP):
         os.mkdir(BACKUP)
-        print("CREATED:")  ##INFO
-        print(BACKUP)  ##INFO
+        print("CREATED:")  # INFO
+        print(BACKUP)  # INFO
 
     # move everything to folder backup
 
     for f in items:
         new_path = os.path.join(BACKUP, f)
         os.rename(f, new_path)
-        print(f"FROM {f} \nMOVED TO {new_path}")  ##INFO
+        print("MOVED:")
+
+        print(f"FROM {f} \nMOVED TO {new_path}")  # INFO
 
 
 # format file names
@@ -37,10 +40,8 @@ def format_path(p):
 
 # ### step 2: copy the original tree into project root folder
 def make_a_copy():
-    import os
-    import shutil
-    ## example with os.walk()
-    # root: ./backup/加餐(1讲)
+    # example with os.walk()
+    # root: ./backup/餐(1讲)
     # dirs: []
     # files: ['加餐|在社交网络上刷粉刷量，技术上是如何实现的?.html']
     for root, dirs, files in os.walk(os.path.join(os.getcwd(), BACKUP)):
@@ -48,30 +49,33 @@ def make_a_copy():
             abs_d = os.path.join(root, d)
             copy_d = abs_d.replace(f"{BACKUP}/", "")
             new_d = format_path(copy_d)
-            os.mkdir(new_d)
-            print("CREATED: ")  ##INFO
-            print(f"FROM {abs_d:50} COPIED {new_d}")  ##INFO
+            if not os.path.isdir(new_d):
+                os.mkdir(new_d)
+                print("CREATED: ")  # INFO
+                print(abs_d)
+                print(new_d)
 
         for f in files:
             abs_f = os.path.join(root, f)
             copy_f = abs_f.replace(f"/{BACKUP}", "")
             new_f = format_path(copy_f)
             shutil.copy(abs_f, new_f)
-            print("COPIED: ")  ##INFO
-            print(f"FROM {abs_f:50} COPIED {new_f}")  ##INFO
+            print("COPIED: ")  # INFO
+            print(abs_f)
+            print(new_f)
 
 
-### step 4: generate index.html
+# ## step 3: Make up common codes
+# ### step 3.1. Get the chapter tree
 def get_hierarchy_dict():
     root = os.getcwd().rsplit('/', 1)[-1]  # this one is much faster
     # hierarchy tree
     tree = dict()
 
-    ## traverse the root directory limiting to our target directories
+    # traverse the root directory limiting to our target directories
     items = os.listdir()
 
     def my_filter(p):
-        import os
         return (not p.startswith('.')
                 and p != BACKUP
                 and os.path.isdir(p)
@@ -88,6 +92,7 @@ def get_hierarchy_dict():
     return tree
 
 
+# ### step 3.2. make up top-level styles
 def write_common_style(style_file="index.css"):
     """
         write the common styles to a file
@@ -209,6 +214,7 @@ def write_common_style(style_file="index.css"):
         style_writter.write(style)
 
 
+# ### Step 3.3. make up top-level scripts
 def write_common_js(js_file="index.js"):
     """
         write common scripts to index.js
@@ -230,11 +236,11 @@ def write_common_js(js_file="index.js"):
         }       
     """
     script = script.strip()
-    with open('index.js', 'w') as js_writer:
+    with open(js_file, 'w') as js_writer:
         js_writer.write(script)
 
 
-### step 3: generate common HTML elements
+# ### step 3.4: generate common HTML elements
 def generate_common_elements(order=None):
     """
     @params order: list Real chapter order
@@ -243,13 +249,11 @@ def generate_common_elements(order=None):
     js_file = "index.js"
     # write_common_style(style_file)
     # write_common_js(js_file)
-    import shutil
     shutil.copy(f'../../{style_file}', f'./{style_file}')
     shutil.copy(f'../../{js_file}', f'./{js_file}')
 
     if order is None:
         order = [1, 2, 4, 3, 5, 0, 6]  # for the course: 数据分析实战45讲
-    import os
     tree = get_hierarchy_dict()
 
     chapter_title_list = list(tree.keys())
@@ -333,7 +337,7 @@ def generate_common_elements(order=None):
 
     """
 
-    ### Between before and after is the original content
+    # Between before and after is the original content
     after = """
             </article>
         </main>
@@ -345,9 +349,8 @@ def generate_common_elements(order=None):
     return before.strip(), after
 
 
-### step 4: generate valid html files
+# ### step 4: generate valid html files
 def generate_valid_html(before="", after=""):
-    import os
     dirs = os.listdir()
     dirs = list(filter(lambda d: not d.startswith('.') and os.path.isdir(d) and d != BACKUP, dirs))
     root = os.getcwd()
@@ -362,22 +365,21 @@ def generate_valid_html(before="", after=""):
             with open(abs_f, 'r') as reader:
                 content = reader.read()
 
-            ## generate valid html with original content
+            # generate valid html with original content
             new_content = before + content + after
 
-            ## override the original file
+            # override the original file
             with open(abs_f, 'w') as writer:
                 writer.write(new_content)
 
             abs_f_new = abs_f.rsplit('/', 1)[0] + '/' + f
             os.rename(abs_f, abs_f_new)
-            print("CREATED: ")  ##INFO
-            print(f"FROM {abs_f:50} \nCREATED {abs_f_new}")  ##INFO
+            print("CREATED: ")  # INFO
+            print(f"FROM {abs_f:50} \nCREATED {abs_f_new}")  # INFO
 
 
 if "__main__" == "__main__":
     back_up()
     make_a_copy()
-    before, after = generate_common_elements([1, 2, 4, 3, 5, 0, 6])
+    before, after = generate_common_elements([1, 2, 4, 3, 5, 0, 6]) # 课程：数据分析实战45讲
     generate_valid_html(before, after)
-    # generate_index_html("index.html")

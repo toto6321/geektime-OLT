@@ -33,6 +33,11 @@ aside {
     overflow-y: scroll;
 }
 
+.button:hover {
+    cursor: pointer;
+    background: bisque;
+}
+
 main {
 	display: flex;
 	flex-direction: column;
@@ -56,6 +61,17 @@ article {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.button {
+    min-width: 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: bisque;
 }
 
 .course_content h4 span {
@@ -174,6 +190,13 @@ div[data-slate-type='list-line'] {
     aside {
         flex: 0 1 650px;
         width: 100%;
+    }
+
+    .button {
+        min-width: 50px;
+        height: 100%;
+        text-align: center;
+        background: bisque;
     }
 
     main {

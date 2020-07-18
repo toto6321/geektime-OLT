@@ -21,8 +21,8 @@ def back_up():
         new_path = os.path.join(BACKUP, f)
         os.rename(f, new_path)
         print("MOVED:")
-
-        print(f"FROM {f} \nMOVED TO {new_path}")  # INFO
+        print(f)
+        print(new_path)
 
 
 # format file names
@@ -82,7 +82,6 @@ def get_hierarchy_dict():
                 )
 
     chapters = list(filter(lambda i: my_filter(i), items))
-    print(chapters)
     for c in chapters:
         file_list = os.listdir(c)
         # just in case
@@ -375,7 +374,8 @@ def generate_valid_html(before="", after=""):
             abs_f_new = abs_f.rsplit('/', 1)[0] + '/' + f
             os.rename(abs_f, abs_f_new)
             print("CREATED: ")  # INFO
-            print(f"FROM {abs_f:50} \nCREATED {abs_f_new}")  # INFO
+            print(abs_f)
+            print(abs_f_new)
 
 
 if "__main__" == "__main__":

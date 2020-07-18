@@ -11,7 +11,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 #app {
@@ -101,7 +100,59 @@ main {
     max-width: 960px;
     /*flex: 1 1 500px;*/
     overflow-y: scroll;
+    padding: 30px 20px;
 }
+
+
+
+div[data-slate-editor='true'] {
+    font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    color: #353535;
+}
+
+h2[data-slate-type='heading'] {
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+div[data-slate-type='paragraph'] {
+	min-height: 30px;
+	margin: 0 0 30px 0;
+}
+
+div[data-slate-type='list'] {
+	margin: 0 0 30px 0;
+}
+
+
+div[data-slate-type='image'] {
+	display: block;
+	text-align: center;
+	margin: 0 0 30px 0;
+}
+
+div[data-slate-type='image'] img {
+    vertical-align: top;
+    max-width: 80%;
+    border-radius: 6px;
+}
+
+span[data-slate-type='bold'] {
+	font-weight: bold;
+}
+
+
+div[data-slate-type='list-line'] {
+	padding-left: 17px;
+	position: relative;
+	margin-left: 3px;
+	margin-bottom: 10px;
+}
+
 
 @media all and (max-width: 600px)  {
     #app {
@@ -118,4 +169,10 @@ main {
         flex: 1 1 60%;
         width: 100%;
     }
+
+    div[data-slate-type='image'] img {
+	    vertical-align: top;
+	    max-width: 100%;
+	    border-radius: 6px;
+	}
 }

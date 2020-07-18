@@ -9,27 +9,44 @@ h3, h4, h5 {
 body {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
 
 #app {
     font: 300 1em/1.5 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
+    flex: 0 1 1280px;
     height: 100vh;
     display: flex;
     overflow: hidden;
-    margin: auto;
 }
 
 aside {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 100%;
+    flex: 0 0 400px;
+    background: #fefdfc;
+    border-right: 1px solid #e4e4e4;
+    transition: left 0.6s ease;
     padding: 20px 0;
     overflow-y: scroll;
 }
 
+main {
+	display: flex;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 30px 20px;
+    justify-content: center;
+}
+
+article {
+	flex: 0 1 880px;
+}
+
+
+/* aside */
 .course_header {
     padding: 0 20px;
 }
@@ -95,16 +112,9 @@ aside {
     color: orange;
 }
 
-main {
-    height: 100%;
-    max-width: 960px;
-    /*flex: 1 1 500px;*/
-    overflow-y: scroll;
-    padding: 30px 20px;
-}
 
 
-
+/* main */
 div[data-slate-editor='true'] {
     font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", Helvetica, sans-serif;
     font-weight: 400;

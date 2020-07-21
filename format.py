@@ -326,7 +326,7 @@ def generate_common_elements(order=None):
     <div id="app">
         <aside id='aside' class=' w3-show'>
             <div class="course_header">
-                <h3 class='w3-text-red'>数据分析实战45讲</h3>
+                <h3 class='w3-text-red'>{title}</h3>
                 <div class='course_content'>
                     <h4><span>&gt;</span><span>课程目录</span></h4>
                      <div class='button' onclick="collapse('aside')">关闭</div>

@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# all kinds of files
+doc/
+
+# downloaded course html files
+course/

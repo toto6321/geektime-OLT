@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+}
+
+h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+#app {
+    font: 300 1em/1.5 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
+    flex: 0 1 1280px;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 400px;
+    background: #fefdfc;
+    border-right: 1px solid #e4e4e4;
+    transition: left 0.6s ease;
+    padding: 20px 0;
+    overflow-y: scroll;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: bisque;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+article {
+	flex: 0 1 880px;
+}
+
+
+/* aside */
+.course_header {
+    padding: 0 20px;
+}
+
+.course_content {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    min-width: 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: bisque;
+}
+
+.course_content h4 span {
+    color: orange;
+    margin-right: 5px;
+}
+
+.c_item {
+    padding: 10px 0;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.chapter_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 0 20px;
+    cursor: pointer;
+}
+
+.chapter_title:hover {
+    text-decoration: underline;
+}
+
+.chapter_wrapper > i {
+    display: block;
+    color: #404040;
+}
+
+.article_list {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+    /*padding: 0 0 0 25px;*/
+}
+
+.article_item {
+    width: 100%;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+    color: #4c4c4c;
+}
+
+.article_item:hover {
+    background: antiquewhite;
+}
+
+.article_item > a {
+    display: block;
+    text-decoration: none;
+}
+
+.article_item:hover {
+    color: orange;
+}
+
+
+
+/* main */
+div[data-slate-editor='true'] {
+    font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    color: #353535;
+}
+
+h2[data-slate-type='heading'] {
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+div[data-slate-type='paragraph'] {
+	min-height: 30px;
+	margin: 0 0 30px 0;
+}
+
+div[data-slate-type='list'] {
+	margin: 0 0 30px 0;
+}
+
+
+div[data-slate-type='image'] {
+	display: block;
+	text-align: center;
+	margin: 0 0 30px 0;
+}
+
+div[data-slate-type='image'] img {
+    vertical-align: top;
+    max-width: 80%;
+    border-radius: 6px;
+}
+
+span[data-slate-type='bold'] {
+	font-weight: bold;
+}
+
+
+div[data-slate-type='list-line'] {
+	padding-left: 17px;
+	position: relative;
+	margin-left: 3px;
+	margin-bottom: 10px;
+}
+
+
+@media all and (max-width: 600px)  {
+    #app {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        flex: 0 1 650px;
+        width: 100%;
+    }
+
+    .button {
+        min-width: 50px;
+        height: 100%;
+        text-align: center;
+        background: bisque;
+    }
+
+    main {
+        flex: 1 0 20%;
+        width: 100%;
+    }
+
+    div[data-slate-type='image'] img {
+	    vertical-align: top;
+	    max-width: 100%;
+	    border-radius: 6px;
+	}
+}

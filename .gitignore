@@ -6,4 +6,4 @@
 doc/
 
 # downloaded course html files
-course/
+course/*/
